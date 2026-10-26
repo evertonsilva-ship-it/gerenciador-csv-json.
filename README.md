@@ -1,65 +1,93 @@
-# Gerenciador de arquivos CSV e JSON
+# Gerenciador de Arquivos CSV e JSON
 
-## Objetivo
-Projeto acadêmico em Python para praticar leitura, escrita, conversão e atualização de dados persistidos em CSV e JSON, com uso de `with open()`, UTF-8, tratamento de exceções e backup antes de sobrescrever arquivos existentes.
+## Identificação
 
-## Autor
-- Nome completo: **PREENCHER COM SEU NOME**
-- Instituição: **PREENCHER**
-- Curso: **PREENCHER**
-- Disciplina: **PREENCHER**
+- **Aluno:** Everton Felipe Cirqueira Da Silva
+- **Instituição:** Centro Universitário UNIBALSAS
+- **Curso:** Análise e Desenvolvimento de Sistemas
+- **Disciplina:** Algoritmos e Programação Avançada
+- **Professor:** Alex
+- **Modalidade:** Trabalho individual
 
-> A atividade foi proposta para dupla. Confirme com o professor se a entrega individual está autorizada e siga a orientação recebida.
+## 1. Descrição do projeto
 
-## Funcionalidades
-- Leitura de CSV e JSON.
-- Conversão CSV → JSON e JSON → CSV.
-- Atualização de campo de um registro JSON.
-- Backup binário do arquivo de destino antes de sobrescrevê-lo.
-- Tratamento de erros comuns de leitura, codificação e formato.
+O Gerenciador de Arquivos CSV e JSON é um projeto desenvolvido em Python para realizar a leitura, a gravação e a conversão de dados entre os formatos CSV e JSON. O sistema também permite atualizar registros e criar cópias de segurança antes de sobrescrever arquivos existentes.
+
+O projeto aplica conceitos de programação modular, manipulação de arquivos, tratamento de exceções e testes automatizados.
+
+## 2. Funcionalidades
+
+- Leitura e exibição de arquivos CSV.
+- Leitura e exibição de arquivos JSON.
+- Conversão de CSV para JSON.
+- Conversão de JSON para CSV.
+- Atualização de registros.
+- Criação de backups antes de sobrescrever arquivos existentes.
+- Tratamento de erros de leitura e gravação.
 - Testes automatizados com `unittest`.
 
-## Requisitos
-- Python 3.11 ou superior.
-- Não são necessárias bibliotecas externas.
+## 3. Estrutura do projeto
 
-## Como executar no Windows (PowerShell)
-1. Abra esta pasta no VS Code.
-2. Crie e ative o ambiente virtual:
+```text
+gerenciador-csv-json/
+├── src/
+│   ├── arquivos.py
+│   ├── backup.py
+│   └── main.py
+├── dados/
+│   ├── produtos.csv
+│   └── produtos.json
+├── backups/
+├── tests/
+│   └── test_arquivos.py
+├── evidencias/
+├── .gitignore
+└── README.md
+```
 
-   ```powershell
-   python -m venv .venv
-   .\.venv\Scripts\Activate.ps1
-   ```
+## 4. Requisitos
 
-3. Execute o menu:
+- Python 3 instalado.
+- Git, caso seja necessário clonar o repositório.
 
-   ```powershell
-   python src\main.py
-   ```
+## 5. Como executar
 
-## Como executar os testes
-Na raiz do projeto, execute:
+Abra o terminal na pasta do projeto e execute:
 
-```powershell
+```bash
+python src/main.py
+```
+
+No menu apresentado, selecione a operação desejada e siga as instruções exibidas pelo programa.
+
+## 6. Como executar os testes
+
+Na pasta principal do projeto, execute:
+
+```bash
 python -m unittest discover -s tests -v
 ```
 
-## Estrutura
-- `src/`: código da aplicação.
-- `dados/`: arquivos de exemplo.
-- `backups/`: cópias criadas durante as operações (arquivos gerados não devem ser versionados por padrão em projetos reais).
-- `tests/`: testes automatizados.
-- `evidencias/`: local sugerido para guardar capturas reais da execução.
+O comando executa os testes automatizados disponíveis na pasta `tests`.
 
-## Observações sobre os dados
-Os valores lidos de CSV são textos, comportamento padrão de `csv.DictReader`. A conversão para JSON preserva esses valores como strings. Ao converter JSON para CSV, os valores são serializados em texto; CSV não armazena tipos como inteiro, decimal ou booleano de forma nativa.
+## 7. Arquivos e backups
 
-## Checklist antes da entrega
-- [ ] Preencher os dados de identificação.
-- [ ] Executar os testes e guardar os resultados reais.
-- [ ] Testar as opções do menu.
-- [ ] Capturar evidências reais para o relatório.
-- [ ] Conferir o relatório PDF e as instruções do professor.
-- [ ] Confirmar se a entrega individual foi autorizada.
-- [ ] Publicar o repositório e testar o link em uma janela anônima.
+Os arquivos de exemplo ficam na pasta `dados/`. Antes de sobrescrever um arquivo existente, o sistema cria uma cópia de segurança na pasta `backups/`.
+
+Os backups possuem extensão `.bak` e são ignorados pelo Git para evitar o envio de cópias de segurança desnecessárias ao repositório.
+
+## 8. Tratamento de erros
+
+O sistema prevê situações como arquivos inexistentes, falta de permissão, problemas de codificação e conteúdo JSON inválido. Quando ocorre um erro previsto, o programa apresenta uma mensagem explicativa.
+
+## 9. Tecnologias utilizadas
+
+- Python 3
+- Módulos `csv`, `json`, `pathlib`, `shutil` e `unittest`
+- Git e GitHub
+
+## 10. Autor
+
+**Everton Felipe Cirqueira Da Silva**
+
+Projeto acadêmico desenvolvido individualmente para a disciplina de Algoritmos e Programação Avançada do Centro Universitário UNIBALSAS.
