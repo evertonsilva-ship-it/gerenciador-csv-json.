@@ -1,0 +1,7 @@
+Guarde nesta pasta capturas de tela REAIS feitas no seu computador.
+Sugestões:
+1. Conversão CSV para JSON.
+2. Conversão JSON para CSV.
+3. Backup criado antes de uma atualização.
+4. Mensagem ao tentar abrir arquivo inexistente.
+Não inclua capturas simuladas ou resultados que não tenham sido executados.

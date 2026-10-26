@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "nome": "Café especial",
+        "categoria": "Bebidas",
+        "preco": "25.90",
+        "quantidade": "12"
+    },
+    {
+        "id": "2",
+        "nome": "Creatina",
+        "categoria": "Suplementos",
+        "preco": "89.90",
+        "quantidade": "7"
+    },
+    {
+        "id": "3",
+        "nome": "Barra de proteína",
+        "categoria": "Alimentos",
+        "preco": "8.50",
+        "quantidade": "30"
+    },
+    {
+        "id": "4",
+        "nome": "Vitamina D",
+        "categoria": "Vitaminas",
+        "preco": "32.00",
+        "quantidade": "15"
+    }
+]
