@@ -7,7 +7,7 @@
 - **Curso:** Análise e Desenvolvimento de Sistemas
 - **Disciplina:** Algoritmos e Programação Avançada
 - **Professor:** Alex
-- **Modalidade:** Trabalho individual
+- 
 
 ## 1. Descrição do projeto
 
