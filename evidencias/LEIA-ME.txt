@@ -1,2 +1,2 @@
+git add evidencias/LEIA-ME.txt
 Todas Evidencias estão no relatorio
-
