@@ -1,93 +1,83 @@
-# Gerenciador de Arquivos CSV e JSON
+# Gerenciador de arquivos CSV e JSON
+
+## Descrição
+Projeto acadêmico em Python (atividade TED 03) para praticar leitura, escrita, conversão e atualização de dados persistidos em arquivos CSV e JSON, com uso de `with open()`, codificação UTF-8, tratamento de exceções de entrada e saída e backup automático antes de sobrescrever arquivos existentes.
 
 ## Identificação
+- Instituição: Centro Universitário UNIBALSAS
+- Curso: Análise e Desenvolvimento de Sistemas
+- Disciplina: Algoritmos e Programação Avançada
+- Professor: Alex
+- Integrantes da dupla:
+  - Everton Felipe Cirqueira da Silva
+  - NOME COMPLETO DO PARCEIRO DE DUPLA
 
-- **Aluno:** Everton Felipe Cirqueira Da Silva
-- **Instituição:** Centro Universitário UNIBALSAS
-- **Curso:** Análise e Desenvolvimento de Sistemas
-- **Disciplina:** Algoritmos e Programação Avançada
-- **Professor:** Alex
-- 
-
-## 1. Descrição do projeto
-
-O Gerenciador de Arquivos CSV e JSON é um projeto desenvolvido em Python para realizar a leitura, a gravação e a conversão de dados entre os formatos CSV e JSON. O sistema também permite atualizar registros e criar cópias de segurança antes de sobrescrever arquivos existentes.
-
-O projeto aplica conceitos de programação modular, manipulação de arquivos, tratamento de exceções e testes automatizados.
-
-## 2. Funcionalidades
-
-- Leitura e exibição de arquivos CSV.
-- Leitura e exibição de arquivos JSON.
-- Conversão de CSV para JSON.
-- Conversão de JSON para CSV.
-- Atualização de registros.
-- Criação de backups antes de sobrescrever arquivos existentes.
-- Tratamento de erros de leitura e gravação.
+## Funcionalidades
+- Leitura e exibição de arquivos CSV e JSON.
+- Conversão de CSV para JSON e de JSON para CSV, sem perda de registros ou de valores (os valores do CSV são mantidos como texto).
+- Atualização de um campo de um registro do JSON.
+- Backup automático (cópia binária `.bak` com data e hora) do arquivo de destino antes de qualquer gravação sobre um arquivo existente.
+- Tratamento de `FileNotFoundError`, `PermissionError`, erros de codificação (`UnicodeDecodeError`), CSV malformado e JSON inválido, com mensagens claras e sem encerrar o programa.
 - Testes automatizados com `unittest`.
 
-## 3. Estrutura do projeto
+## Requisitos
+- Python 3.11 ou superior.
+- Nenhuma biblioteca externa.
 
-```text
-gerenciador-csv-json/
-├── src/
-│   ├── arquivos.py
-│   ├── backup.py
-│   └── main.py
-├── dados/
-│   ├── produtos.csv
-│   └── produtos.json
-├── backups/
-├── tests/
-│   └── test_arquivos.py
-├── evidencias/
-├── .gitignore
-└── README.md
-```
+## Como executar (Windows, PowerShell)
+1. Abra a pasta do projeto no VS Code.
+2. Crie e ative o ambiente virtual:
 
-## 4. Requisitos
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
 
-- Python 3 instalado.
-- Git, caso seja necessário clonar o repositório.
+3. Execute o menu:
 
-## 5. Como executar
+   ```powershell
+   python src\main.py
+   ```
 
-Abra o terminal na pasta do projeto e execute:
+### Menu
+| Opção | Ação |
+|---|---|
+| 1 | Ler e exibir `dados/produtos.csv` |
+| 2 | Converter CSV para JSON (`dados/produtos.json`) |
+| 3 | Converter JSON para CSV (`dados/produtos_convertidos.csv`) |
+| 4 | Atualizar um campo de um produto no JSON (informar campo identificador, valor do identificador, campo a atualizar e novo valor) |
+| 5 | Ler e exibir `dados/produtos.json` |
+| 0 | Sair |
 
-```bash
-python src/main.py
-```
+Exemplo da opção 4: identificador `id`, valor `2`, campo `preco`, novo valor `89.90`.
 
-No menu apresentado, selecione a operação desejada e siga as instruções exibidas pelo programa.
+## Como executar os testes
+Na raiz do projeto:
 
-## 6. Como executar os testes
-
-Na pasta principal do projeto, execute:
-
-```bash
+```powershell
 python -m unittest discover -s tests -v
 ```
 
-O comando executa os testes automatizados disponíveis na pasta `tests`.
+Os testes usam uma pasta temporária e não alteram os arquivos de `dados/`.
 
-## 7. Arquivos e backups
+## Como reproduzir o teste de erro
+Renomeie temporariamente `dados/produtos.csv` para `dados/produtos_off.csv`, execute o menu e escolha a opção 1. O programa deve exibir "Arquivo CSV não encontrado" e voltar ao menu. Depois, restaure o nome original do arquivo.
 
-Os arquivos de exemplo ficam na pasta `dados/`. Antes de sobrescrever um arquivo existente, o sistema cria uma cópia de segurança na pasta `backups/`.
+## Estrutura do repositório
+```
+gerenciador-csv-json/
+├── src/
+│   ├── main.py          # menu de terminal
+│   ├── arquivos.py      # leitura, escrita, conversão, atualização e exceções
+│   └── backup.py        # criação do backup (.bak)
+├── tests/
+│   └── test_arquivos.py # testes automatizados
+├── dados/               # arquivos CSV e JSON de exemplo
+├── backups/             # cópias geradas automaticamente
+├── evidencias/          # capturas de tela
+├── README.md
+└── TED03_Relatorio_Everton.pdf   # relatório técnico
+```
 
-Os backups possuem extensão `.bak` e são ignorados pelo Git para evitar o envio de cópias de segurança desnecessárias ao repositório.
-
-## 8. Tratamento de erros
-
-O sistema prevê situações como arquivos inexistentes, falta de permissão, problemas de codificação e conteúdo JSON inválido. Quando ocorre um erro previsto, o programa apresenta uma mensagem explicativa.
-
-## 9. Tecnologias utilizadas
-
-- Python 3
-- Módulos `csv`, `json`, `pathlib`, `shutil` e `unittest`
-- Git e GitHub
-
-## 10. Autor
-
-**Everton Felipe Cirqueira Da Silva**
-
-Projeto acadêmico desenvolvido individualmente para a disciplina de Algoritmos e Programação Avançada do Centro Universitário UNIBALSAS.
+## Observações sobre os dados
+O módulo `csv` trata todos os valores como texto. A conversão para JSON preserva esses valores como strings, o que evita alterações ou arredondamentos. Ao converter JSON para CSV, os valores são gravados como texto, pois o CSV não armazena tipos como inteiro ou decimal. Na atualização de campo (opção 4), o novo valor também é salvo como texto, sem validação de formato.
