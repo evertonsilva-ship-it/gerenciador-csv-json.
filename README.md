@@ -8,9 +8,9 @@ Projeto acadêmico em Python (atividade TED 03) para praticar leitura, escrita, 
 - Curso: Análise e Desenvolvimento de Sistemas
 - Disciplina: Algoritmos e Programação Avançada
 - Professor: Alex
-- Integrantes da dupla:
+- Integrante
   - Everton Felipe Cirqueira da Silva
-  - NOME COMPLETO DO PARCEIRO DE DUPLA
+ 
 
 ## Funcionalidades
 - Leitura e exibição de arquivos CSV e JSON.
